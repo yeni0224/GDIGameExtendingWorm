@@ -1,0 +1,296 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\PlayScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|solutionrelative:YeniGame\\PlayScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\PlayScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|solutionrelative:YeniGame\\PlayScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\GameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|solutionrelative:YeniGame\\GameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\MyFirstWndGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|solutionrelative:YeniGame\\MyFirstWndGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\\uB098\uC804\uCE60\uAE30_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\\uC5F0\uC2B5\uC7A5.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\\uB098\uC804\uCE60\uAE30_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\GeoShapeManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\03_\uCDA9\uB3CC\\GameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\03_\uCDA9\uB3CC\\RenderHelp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\03_\uCDA9\uB3CC\\RenderHelp.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\\uB098\uC804\uCE60\uAE30_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\GameTimer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|solutionrelative:YeniGame\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\Collider.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|solutionrelative:YeniGame\\Collider.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\Collider.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|solutionrelative:YeniGame\\Collider.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\MyFirstWndGame.h||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|solutionrelative:YeniGame\\MyFirstWndGame.h||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\NzWndBase.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BAD0C25-39C3-4CCB-9537-A18E98107238}|YeniGame\\YeniGame.vcxproj|solutionrelative:YeniGame\\NzWndBase.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{ebe3f1d5-feac-4131-bf03-0e85ffb89a89}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GameObject.h",
+              "DocumentMoniker": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\GameObject.h",
+              "RelativeDocumentMoniker": "YeniGame\\GameObject.h",
+              "ToolTip": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\GameObject.h",
+              "RelativeToolTip": "YeniGame\\GameObject.h",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAAGkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-30T07:42:26.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Collider.h",
+              "DocumentMoniker": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\Collider.h",
+              "RelativeDocumentMoniker": "YeniGame\\Collider.h",
+              "ToolTip": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\Collider.h",
+              "RelativeToolTip": "YeniGame\\Collider.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-30T07:32:09.955Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Collider.cpp",
+              "DocumentMoniker": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\Collider.cpp",
+              "RelativeDocumentMoniker": "YeniGame\\Collider.cpp",
+              "ToolTip": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\Collider.cpp",
+              "RelativeToolTip": "YeniGame\\Collider.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-30T07:32:10.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "NzWndBase.cpp",
+              "DocumentMoniker": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\NzWndBase.cpp",
+              "RelativeDocumentMoniker": "YeniGame\\NzWndBase.cpp",
+              "ToolTip": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\NzWndBase.cpp",
+              "RelativeToolTip": "YeniGame\\NzWndBase.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-30T07:02:07.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MyFirstWndGame.h",
+              "DocumentMoniker": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\MyFirstWndGame.h",
+              "RelativeDocumentMoniker": "YeniGame\\MyFirstWndGame.h",
+              "ToolTip": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\MyFirstWndGame.h",
+              "RelativeToolTip": "YeniGame\\MyFirstWndGame.h",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAawFoAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-30T02:04:19.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayScene.h",
+              "DocumentMoniker": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\PlayScene.h",
+              "RelativeDocumentMoniker": "YeniGame\\PlayScene.h",
+              "ToolTip": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\PlayScene.h",
+              "RelativeToolTip": "YeniGame\\PlayScene.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAawCQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-30T07:16:01.904Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PlayScene.cpp",
+              "DocumentMoniker": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\PlayScene.cpp",
+              "RelativeDocumentMoniker": "YeniGame\\PlayScene.cpp",
+              "ToolTip": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\PlayScene.cpp",
+              "RelativeToolTip": "YeniGame\\PlayScene.cpp",
+              "ViewState": "AgIAACUBAAAAAAAAAAAgwD8BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-29T10:09:10.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MyFirstWndGame.cpp",
+              "DocumentMoniker": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\MyFirstWndGame.cpp",
+              "RelativeDocumentMoniker": "YeniGame\\MyFirstWndGame.cpp",
+              "ToolTip": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\MyFirstWndGame.cpp",
+              "RelativeToolTip": "YeniGame\\MyFirstWndGame.cpp",
+              "ViewState": "AgIAAOgAAAAAAAAAAAAawBUBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-30T06:49:17.298Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameObject.cpp",
+              "DocumentMoniker": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\GameObject.cpp",
+              "RelativeDocumentMoniker": "YeniGame\\GameObject.cpp",
+              "ToolTip": "C:\\Yeni\\GDIGameProject\\YeeunGDIGame\\YeniGame\\GameObject.cpp",
+              "RelativeToolTip": "YeniGame\\GameObject.cpp",
+              "ViewState": "AgIAABoAAAAAAAAAAAAawDQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-30T06:59:22.401Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "d52155e1-8d4f-4406-b19b-826b4bacc255",
+        "Display": 0,
+        "X": 2350,
+        "Y": 93,
+        "Width": 1021,
+        "Height": 1099,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GameObject.cpp",
+              "DocumentMoniker": "D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\03_\uCDA9\uB3CC\\GameObject.cpp",
+              "ToolTip": "D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\03_\uCDA9\uB3CC\\GameObject.cpp",
+              "ViewState": "AgIAADMAAAAAAAAAAADwvwQAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-30T10:41:14.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RenderHelp.cpp",
+              "DocumentMoniker": "D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\03_\uCDA9\uB3CC\\RenderHelp.cpp",
+              "ToolTip": "D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\03_\uCDA9\uB3CC\\RenderHelp.cpp",
+              "ViewState": "AgIAAIQAAAAAAAAAAADwv6oAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-30T10:41:04.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RenderHelp.h",
+              "DocumentMoniker": "D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\03_\uCDA9\uB3CC\\RenderHelp.h",
+              "ToolTip": "D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\03_\uCDA9\uB3CC\\RenderHelp.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-30T10:41:01.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GameTimer.cpp",
+              "DocumentMoniker": "D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\\uB098\uC804\uCE60\uAE30_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\GameTimer.cpp",
+              "ToolTip": "D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\\uB098\uC804\uCE60\uAE30_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\GameTimer.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-30T10:40:48.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "\uC5F0\uC2B5\uC7A5.cpp",
+              "DocumentMoniker": "D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\\uB098\uC804\uCE60\uAE30_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\\uC5F0\uC2B5\uC7A5.cpp",
+              "ToolTip": "D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\\uB098\uC804\uCE60\uAE30_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\\uC5F0\uC2B5\uC7A5.cpp",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAHMAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-30T06:54:33.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GeoShapeManager.h",
+              "DocumentMoniker": "D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\\uB098\uC804\uCE60\uAE30_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\GeoShapeManager.h",
+              "ToolTip": "D:\\\uBB34\uD55C\uC99D\uC2DD\\1\\\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08_\uACFC\uC81C\\GDIGame\\\uAE40\uC608\uC740_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\\uB098\uC804\uCE60\uAE30_\uD504\uB85C\uADF8\uB798\uBC0D\uAE30\uCD08\\GeoShapeManager.h",
+              "ViewState": "AgIAALgAAAAAAAAAAAASwM8AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-30T05:24:31.031Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
