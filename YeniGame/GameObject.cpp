@@ -38,14 +38,14 @@ void GameObject::Update(float deltaTime)
     }
 }
 
-//지렁이 몸통 색 바꾸기
+//fly 그리기
 void GameObject::Render(HDC hdc, bool arrbool)
 {
-    DrawCollider(hdc, arrbool);
+    //DrawCollider(hdc, arrbool);
     DrawBitmap(hdc);
 }
 
-//지렁이 머리 색 바꾸기
+//개구리 그리기
 void GameObject::Render(HDC hdc)
 {
     //DrawCollider(hdc);
@@ -86,8 +86,6 @@ void GameObject::SetColliderBox(float width, float height)
     m_pColliderBox->halfSize.y = height / 2.0f;
 }
 
-// 과제: 해당 코드의 문제는 무엇일까요? 어떻게 개선하면 좋을까요?
-// 개선 방향에 대해 서로 토론하고 비교해 보세요.
 void GameObject::DrawCollider(HDC hdc)
 {
     HPEN hPen = CreatePen(PS_SOLID, 2, RGB(116, 189, 121));
@@ -130,8 +128,6 @@ void GameObject::DrawCollider(HDC hdc, bool arrbool)
     }
 
     HPEN hOldPen = (HPEN)SelectObject(hdc, hPen);
-    HBRUSH hGreenBrush = CreateSolidBrush(RGB(116, 189, 121));
-    HBRUSH hOldBrush = (HBRUSH)SelectObject(hdc, hGreenBrush);
 
     if (m_pColliderCircle)
     {
@@ -151,9 +147,7 @@ void GameObject::DrawCollider(HDC hdc, bool arrbool)
 
     // 이전 객체 복원 및 펜 삭제
     SelectObject(hdc, hOldPen);
-    SelectObject(hdc, hOldBrush);
     DeleteObject(hPen);
-    DeleteObject(hGreenBrush);
 }
 
 void GameObject::SetBitmapInfo(BitmapInfo* bitmapInfo)
@@ -167,9 +161,9 @@ void GameObject::SetBitmapInfo(BitmapInfo* bitmapInfo)
      일단, 프레임 크기와 시간이 같다고 가정합니다.
     m_frameWidth = m_pBitmapInfo->GetWidth() / 5;
     m_frameHeight = m_pBitmapInfo->GetHeight() / 3;
-    m_frameIndex = 0;*/
+    m_frameIndex = 0;
 
-   /* for (int i = 0; i < 5; ++i)
+    for (int i = 0; i < 5; ++i)
     {
         m_frameXY[i].x = i * m_frameWidth;
         m_frameXY[i].y = 0;
@@ -216,7 +210,6 @@ void GameObject::DrawBitmap(HDC hdc)
     // 비트맵 핸들 복원
     SelectObject(hBitmapDC, hOldBitmap);
     DeleteDC(hBitmapDC);
-
 }
 
 void GameObject::Move(float deltaTime)

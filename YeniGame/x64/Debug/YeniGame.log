@@ -1,23 +1,30 @@
-﻿  PlayScene.cpp
-C:\Yeni\GDIGameProject\YeeunGDIGame\YeniGame\MyFirstWndGame.h(124,99): warning C4244: '인수': 'const int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'PlayScene.cpp'을(를) 컴파일하는 중)
+﻿  MyFirstWndGame.cpp
+C:\Yeni\GDIGameProject\GDIGameExtendingWorm\YeniGame\MyFirstWndGame.h(122,99): warning C4244: '인수': 'const int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'MyFirstWndGame.cpp'을(를) 컴파일하는 중)
   
-C:\Yeni\GDIGameProject\YeeunGDIGame\YeniGame\MyFirstWndGame.h(124,78): warning C4244: '인수': 'const int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'PlayScene.cpp'을(를) 컴파일하는 중)
+C:\Yeni\GDIGameProject\GDIGameExtendingWorm\YeniGame\MyFirstWndGame.h(122,78): warning C4244: '인수': 'const int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'MyFirstWndGame.cpp'을(를) 컴파일하는 중)
   
-C:\Yeni\GDIGameProject\YeeunGDIGame\YeniGame\MyFirstWndGame.h(125,99): warning C4244: '인수': 'const int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'PlayScene.cpp'을(를) 컴파일하는 중)
+C:\Yeni\GDIGameProject\GDIGameExtendingWorm\YeniGame\MyFirstWndGame.h(123,93): warning C4244: '인수': 'const int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'MyFirstWndGame.cpp'을(를) 컴파일하는 중)
   
-C:\Yeni\GDIGameProject\YeeunGDIGame\YeniGame\MyFirstWndGame.h(125,78): warning C4244: '인수': 'const int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'PlayScene.cpp'을(를) 컴파일하는 중)
+C:\Yeni\GDIGameProject\GDIGameExtendingWorm\YeniGame\MyFirstWndGame.h(123,74): warning C4244: '인수': 'const int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'MyFirstWndGame.cpp'을(를) 컴파일하는 중)
   
-C:\Yeni\GDIGameProject\YeeunGDIGame\YeniGame\MyFirstWndGame.h(126,111): warning C4244: '인수': 'const int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'PlayScene.cpp'을(를) 컴파일하는 중)
+  TitleScene.cpp
+C:\Yeni\GDIGameProject\GDIGameExtendingWorm\YeniGame\MyFirstWndGame.h(122,99): warning C4244: '인수': 'const int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'TitleScene.cpp'을(를) 컴파일하는 중)
   
-C:\Yeni\GDIGameProject\YeeunGDIGame\YeniGame\MyFirstWndGame.h(126,86): warning C4244: '인수': 'const int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'PlayScene.cpp'을(를) 컴파일하는 중)
+C:\Yeni\GDIGameProject\GDIGameExtendingWorm\YeniGame\MyFirstWndGame.h(122,78): warning C4244: '인수': 'const int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'TitleScene.cpp'을(를) 컴파일하는 중)
   
-C:\Yeni\GDIGameProject\YeeunGDIGame\YeniGame\PlayScene.cpp(65,53): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Yeni\GDIGameProject\YeeunGDIGame\YeniGame\PlayScene.cpp(66,53): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Yeni\GDIGameProject\YeeunGDIGame\YeniGame\PlayScene.cpp(67,44): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  YeniGame.vcxproj -> C:\Yeni\GDIGameProject\YeeunGDIGame\x64\Debug\YeniGame.exe
+C:\Yeni\GDIGameProject\GDIGameExtendingWorm\YeniGame\MyFirstWndGame.h(123,93): warning C4244: '인수': 'const int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'TitleScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Yeni\GDIGameProject\GDIGameExtendingWorm\YeniGame\MyFirstWndGame.h(123,74): warning C4244: '인수': 'const int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'TitleScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Yeni\GDIGameProject\GDIGameExtendingWorm\YeniGame\TitleScene.cpp(114,44): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Yeni\GDIGameProject\GDIGameExtendingWorm\YeniGame\TitleScene.cpp(114,34): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  YeniGame.vcxproj -> C:\Yeni\GDIGameProject\GDIGameExtendingWorm\x64\Debug\YeniGame.exe

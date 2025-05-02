@@ -17,10 +17,12 @@ namespace renderHelp
 enum class ObjectType
 {
     PLAYER,
-    SEGMENT,
+    ENEMY,
     OBSTACLE,
     ITEM,
     BACKGROUND,
+    ENEMY_GOLD,
+    GAMESTART
 };
 
 constexpr int OBJECT_NAME_LEN_MAX = 15;
@@ -48,8 +50,8 @@ public:
     void SetWidth(int width) { m_width = width; }
     void SetHeight(int height) { m_height = height; }
 
-    int GetWidth() const { return m_width; } // 2025-04-22
-    int GetHeight() const { return m_height; } // 2025-04-22
+    int GetWidth() const { return m_width; } 
+    int GetHeight() const { return m_height; }
 
     ObjectType Type() const { return m_type; }
 
@@ -59,6 +61,9 @@ public:
     Vector2f GetDirection() const { return m_dir; }
 
     float GetSpeed() const { return m_speed; }
+
+    Vector2f GetTargetPos() { return m_targetPos; }
+    void SetTargetPos(Vector2f vec) { m_targetPos.x = vec.x; m_targetPos.y = vec.y; }
 
 protected:
 
@@ -77,6 +82,7 @@ protected:
 
     Vector2f m_pos = { 0.0f, 0.0f };
     Vector2f m_dir = { 0.0f, 0.0f }; // 방향 (단위 벡터)
+    Vector2f m_targetPos = { 0.0f, 0.0f };
 
     float m_speed = 0.0f; // 속력
 
@@ -121,18 +127,15 @@ protected:
     // Bitmap 정보
     BitmapInfo* m_pBitmapInfo = nullptr;
 
-    // 점진적으로 예쁘게 고쳐 보아요.
     struct FrameFPos
     {
         int x;
         int y;
     };
-    // 프레임 정보: 왜 14개냐고 물으시면 셌다고 밖에...:) 해당 오브젝트 바꿀 것임
     FrameFPos m_frameXY = { 0, 0 };
     int m_frameWidth = 0;
     int m_frameHeight = 0;
     int m_frameIndex = 0;
-    //int m_frameCount = 14; // 프레임 수
 
     float m_frameTime = 0.0f;
     float m_frameDuration = 100.0f; // 임의 설정

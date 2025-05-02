@@ -28,7 +28,6 @@ bool MyFirstWndGame::Initialize()
         return false;
     }
 
-
     RECT rcClient = {};
     GetClientRect(m_hWnd, &rcClient);
     m_width = rcClient.right - rcClient.left;
@@ -41,13 +40,15 @@ bool MyFirstWndGame::Initialize()
     m_hDefaultBitmap = (HBITMAP)SelectObject(m_hBackDC, m_hBackBitmap);
 
 #pragma region resource
-    m_pPlayerBitmapInfo = renderHelp::CreateBitmapInfo(L"../Resource/wormface.png");
+    m_pPlayerBitmapInfo = renderHelp::CreateBitmapInfo(L"../Resource/frog.png");
     m_pBackgroundBitmapInfo = renderHelp::CreateBitmapInfo(L"../Resource/background.png");
-    m_pObstacleBitmapInfo = renderHelp::CreateBitmapInfo(L"../Resource/obstacle.png");
+    m_pEnemyBitmapInfo = renderHelp::CreateBitmapInfo(L"../Resource/fly.png");
+    m_pEnemyGoldBitmapInfo = renderHelp::CreateBitmapInfo(L"../Resource/fly_gold.png");
+    m_pGameStartBitmapInfo = renderHelp::CreateBitmapInfo(L"../Resource/start_button.png");
 
-    
-    if (m_pPlayerBitmapInfo == nullptr /* || m_pWormSegBitmapInfo == nullptr*/
-        || m_pBackgroundBitmapInfo == nullptr)
+    if (m_pPlayerBitmapInfo == nullptr  || m_pEnemyBitmapInfo == nullptr
+        || m_pBackgroundBitmapInfo == nullptr || m_pEnemyGoldBitmapInfo == nullptr 
+        || m_pGameStartBitmapInfo == nullptr)
     {
         std::cout << "Bitmap Load Failed!" << std::endl;
         return false;
@@ -55,7 +56,6 @@ bool MyFirstWndGame::Initialize()
 
     m_pScenes[SceneType::SCENE_TITLE] = new TitleScene();
     m_pScenes[SceneType::SCENE_TITLE]->Initialize(this);
-
 
     m_pScenes[SceneType::SCENE_PLAY] = new PlayScene();
     m_pScenes[SceneType::SCENE_PLAY]->Initialize(this);
@@ -115,8 +115,6 @@ void MyFirstWndGame::Finalize()
             m_pScenes[i] = nullptr;
         }
     }
-    //DeleteObject(hRedPen);
-    //DeleteObject(hBluePen);
     __super::Destroy();
 }
 
@@ -206,8 +204,8 @@ void MyFirstWndGame::OnMouseMove(int x, int y)
 
 void MyFirstWndGame::OnLButtonDown(int x, int y)
 {
-    /*  std::cout << __FUNCTION__ << std::endl;
- std::cout << "x: " << x << ", y: " << y << std::endl;*/
+      std::cout << __FUNCTION__ << std::endl;
+ //std::cout << "x: " << x << ", y: " << y << std::endl;
 
     m_PlayerTargetPos.x = x;
     m_PlayerTargetPos.y = y;
@@ -221,14 +219,14 @@ void AddCircle(int centerX, int centerY, int radius, COLORREF color)
     ++m_shapeCount;
 }
 
-//void AddRectangle(int left, int top, int right, int bottom, COLORREF color)
-//{
-//    if (m_shapeCount >= MAX_SHAPES) return;
-//
-//    m_shapes[m_shapeCount] = new RectangleShape(left, top, right, bottom, color);//암묵적 업캐스팅
-//    //m_shapes[m_shapeCount] = (ShapeBase*)(left, top, right, bottom, color); //동일하다
-//    ++m_shapeCount;
-//}
+void AddRectangle(int left, int top, int right, int bottom, COLORREF color)
+{
+    if (m_shapeCount >= MAX_SHAPES) return;
+
+    m_shapes[m_shapeCount] = new RectangleShape(left, top, right, bottom, color);//암묵적 업캐스팅
+    //m_shapes[m_shapeCount] = (ShapeBase*)(left, top, right, bottom, color); //동일하다
+    ++m_shapeCount;
+}
 
 bool RemoveCircle(int centerX, int centerY)
 {
@@ -252,43 +250,44 @@ bool RemoveCircle(int centerX, int centerY)
     return false;
 }
 
-//bool RemoveRectangle(int X, int Y)
-//{
-//    for (int i = 0; i < m_shapeCount; i++)
-//    {
-//        if (m_shapes[i]->IsPointingRectangle(X, Y))
-//        {
-//            std::cout << m_shapes[i]->IsPointingRectangle(X, Y) << std::endl;
-//            delete m_shapes[i];
-//            if (i < m_shapeCount)
-//            {
-//                for (int j = i; j < m_shapeCount - 1; j++)
-//                {
-//                    m_shapes[j] = m_shapes[j + 1];
-//                }
-//                m_shapes[m_shapeCount - 1] = nullptr;
-//                --m_shapeCount;
-//            }
-//            return true;
-//        }
-//    }
-//    return false;
-//}
-
-void AddRandomWormSeg(HWND m_hWnd)
+bool RemoveRectangle(int X, int Y)
 {
-    int x = rand() % 1080;
-    int y = rand() % 720;
+    for (int i = 0; i < m_shapeCount; i++)
+    {
+        if (m_shapes[i]->IsPointingRectangle(X, Y))
+        {
+            std::cout << m_shapes[i]->IsPointingRectangle(X, Y) << std::endl;
+            delete m_shapes[i];
+            if (i < m_shapeCount)
+            {
+                for (int j = i; j < m_shapeCount - 1; j++)
+                {
+                    m_shapes[j] = m_shapes[j + 1];
+                }
+                m_shapes[m_shapeCount - 1] = nullptr;
+                --m_shapeCount;
+            }
+            return true;
+        }
+    }
+    return false;
+}
+
+//파리 추가
+void MyFirstWndGame::AddRandomEnemy(HWND m_hWnd)
+{
+    int x = rand() % 1081;
+    int y = rand() % 721;
 
     srand((unsigned int)time(NULL));
     {
-        AddCircle(x, y, 10, RGB(137, 223, 143));
+        AddCircle(x, y, 20, RGB(137, 223, 143));
         ::InvalidateRect(m_hWnd, NULL, TRUE); //화면 갱신
         std::cout << "ADD Circle" << std::endl;
     }
 }
 
-//void AddRandomWormSeg(HWND  hwnd)
+//void MyFirstWndGame::AddRandomEnemy(HWND  hwnd)
 //{
 //    int x = rand() % 1080;
 //    int y = rand() % 720;
@@ -304,21 +303,10 @@ void AddRandomWormSeg(HWND m_hWnd)
 
 //void MyFirstWndGame::OnRButtonDown(int x, int y)
 //{
-    /*  std::cout << __FUNCTION__ << std::endl;
-   std::cout << "x: " << x << ", y: " << y << std::endl;*/
-    
-    //m_WormSegSpawnPos.x = x;
-    //m_WormSegSpawnPos.y = y;
+//    /*  std::cout << __FUNCTION__ << std::endl;
+//   std::cout << "x: " << x << ", y: " << y << std::endl;*/
+//    
+//    //m_EnemySpawnPos.x = x;
+//    //m_EnemySpawnPos.y = y;
 //}
 
-//좌클릭 : 플레이어 방향 이동
-//우클릭 : 기능 없음
-// 
-//시간 지날 때마다 : 2초마다 점수 1점 상승
-//                   원이 붙으면 점수 5점 상승
-//                   3초마다 원 랜덤위치에서 발생
-//                   4초마다 사각형 랜덤위치에서 발생
-//점수 : 정수 printing 할 것인가, 폰트 바꿀 것인가   
-//장애물과 부딪히면 : Ending scene
-//Retry button : Ending scene에서 좌클릭
-//Retry button 구현 안되면 10초 뒤에 title scene

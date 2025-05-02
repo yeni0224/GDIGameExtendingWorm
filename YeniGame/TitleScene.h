@@ -21,6 +21,7 @@ public:
     void Update(float deltaTime) override;
     void Render(HDC hDC) override;
 
+
 private:
 
     GameObjectBase* m_pBackground = nullptr;
@@ -34,5 +35,10 @@ private:
 
     RECT m_rect = { 0, 0, 0, 0 };
     RECT m_storyRect = { 0, 0, 0, 0 };
+    RECT m_btnStartRect = { 0, 0, 0, 0 };
+
+
+    GameObjectBase* m_pButton = nullptr;
+    void CreatebtnStart();
 };
 

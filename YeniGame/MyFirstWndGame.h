@@ -1,13 +1,13 @@
+
 #pragma once
 #include "NzWndBase.h" // 상속을 위해서 받아옴
 #include "Utillity.h"
 #include "INC_Windows.h"
 #include "Scene.h"
 
+
 // [CHECK] #7  전방 선언을 사용하여 헤더파일의 의존성을 줄임.
 class GameTimer;
-//class GameObjectBase;
-//class GameObject;
 
 class Scnene;
 namespace renderHelp
@@ -33,6 +33,17 @@ private:
     COLORREF m_color;
 };
 
+class RectangleShape : public ShapeBase
+{
+public:
+    RectangleShape(int left, int top, int right, int bottom, COLORREF color)
+        : m_left(left), m_top(top), m_right(right), m_bottom(bottom), m_color(color) {
+    }
+private:
+    int m_left, m_top, m_right, m_bottom;
+    COLORREF m_color;
+};
+
 class MyFirstWndGame : public NzWndBase// NzWndBase를 상속받아 윈도우 클래스를 구현한 예시.
 {
 public:
@@ -41,11 +52,6 @@ public:
     bool Initialize(); // 초기화 함수
     void Run(); // 실행함수(루프)
     void Finalize(); // 종료 함수
-    /*bool Create(const wchar_t* className, const wchar_t* windowName, int width, int height);
-    void Destroy();
-    void* GetHandle() const { return m_hWnd; }
-    int GetWidth() const { return m_width; }
-    int GetHeight() const { return m_height; }*/ // 이거 상속받아서 있음
 
     void ChangeScene(SceneType eSceneType);
 
@@ -58,16 +64,10 @@ private:
 
     void OnMouseMove(int x, int y);
     void OnLButtonDown(int x, int y);
-    void OnRButtonDown(int x, int y);
+    //void OnRButtonDown(int x, int y);
 
     void FixedUpdate();
     void LogicUpdate();
-
-    //[20250422] PlayeScene 로 이동
-    //void CreatePlayer();
-    //void CreateEnemy();
-
-   // void UpdatePlayerInfo();
 
    // GameObject* GetPlayer() const { return (GameObject*)m_GameObjectPtrTable[0]; }
    // GameObject* GetObj(int index) const { return (GameObject*)m_GameObjectPtrTable[index]; }
@@ -84,8 +84,6 @@ private:
     float m_fFrameCount = 0.0f;
 
     // [CHECK] #8. 게임 오브젝트를 관리하는 컨테이너.
-   //[20240422] Scene 에서 관리하도록 변경
-   //int m_eCurrentScene = SCENE_PLAY; Enter 가 안되서.
     int m_eCurrentScene = SCENE_TITLE;
     Scene* m_pScenes[SceneType::SCENE_MAX] = { nullptr, nullptr, nullptr };
     //GameObjectBase** m_GameObjectPtrTable  = nullptr;
@@ -105,8 +103,7 @@ private:
     MOUSE_POS m_MousePosPrev = { 0, 0 };
 
     MOUSE_POS m_PlayerTargetPos = { 0, 0 };
-    MOUSE_POS m_WormSegSpawnPos = { 0, 0 };
-    MOUSE_POS m_ObstacleSegSpawnPos = { 0, 0 };
+    MOUSE_POS m_EnemySpawnPos = { 0, 0 };
    
     bool* isOverlap = nullptr;
 
@@ -114,23 +111,24 @@ private:
     using BitmapInfo = renderHelp::BitmapInfo;
 
     BitmapInfo* m_pPlayerBitmapInfo = nullptr;
-    BitmapInfo* m_pWormSegBitmapInfo = nullptr;
+    BitmapInfo* m_pEnemyBitmapInfo = nullptr;
+    BitmapInfo* m_pEnemyGoldBitmapInfo = nullptr;
     BitmapInfo* m_pBackgroundBitmapInfo = nullptr;
-    BitmapInfo* m_pObstacleBitmapInfo = nullptr;
+    BitmapInfo* m_pGameStartBitmapInfo = nullptr;
 
 public:
 
     using Vector2f = learning::Vector2f;
     Vector2f PlayerTargetPosition() const { return Vector2f(m_PlayerTargetPos.x, m_PlayerTargetPos.y); }
-    Vector2f WormSegSpawnPosition() const { return Vector2f(m_WormSegSpawnPos.x, m_WormSegSpawnPos.y); }
-    Vector2f ObstacleSegSpawnPosition() const { return Vector2f(m_ObstacleSegSpawnPos.x, m_ObstacleSegSpawnPos.y); }
-    void ResetWormSegSpawnPosition() { m_WormSegSpawnPos = { 0, 0 }; } 
-    void ResetObstacleSegSpawnPosition() { m_ObstacleSegSpawnPos = { 0, 0 }; } 
+    Vector2f EnemySpawnPosition() const { return Vector2f(m_EnemySpawnPos.x, m_EnemySpawnPos.y); }
+
+    void ResetEnemySpawnPosition() { m_EnemySpawnPos = { 0, 0 }; } 
+    void AddRandomEnemy(HWND m_hWnd);
 
     BitmapInfo* GetPlayerBitmapInfo() const { return m_pPlayerBitmapInfo; }
-    BitmapInfo* GetWormSegBitmapInfo() const { return m_pWormSegBitmapInfo; }
-    BitmapInfo* GetObstacleBitmapInfo() const { return m_pObstacleBitmapInfo; }
-
+    BitmapInfo* GetEnemyBitmapInfo() const { return m_pEnemyBitmapInfo; }
+    BitmapInfo* GetEnemyGoldBitmapInfo() const { return m_pEnemyGoldBitmapInfo; }
+    BitmapInfo* GetGameStartBitmapInfo() const { return m_pGameStartBitmapInfo; }
     BitmapInfo* GetBackgroundBitmapInfo() const { return m_pBackgroundBitmapInfo; }
 
 #pragma endregion
