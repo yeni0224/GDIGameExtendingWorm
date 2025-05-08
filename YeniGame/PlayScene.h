@@ -56,6 +56,7 @@ private:
     int spawnCnt = 0;
     int FrogGauge = 0;
     int FrogMaxGauge = 100;
+    
    
     bool* arrbool = nullptr;
 
@@ -66,7 +67,7 @@ private:
 
     GameObjectBase* m_pBackground = nullptr;
 
-    int score;
+    int score = 0;
     float randWidth = 0;
     float randHieght = 0;
 

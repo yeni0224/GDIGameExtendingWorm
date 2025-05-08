@@ -68,7 +68,7 @@ void PlayScene::FixedUpdate()
     FrogGauge -= 8;
     std::cout << "Frog Gauge : " << FrogGauge << std::endl;
     //시간마다 점수 업데이트
-    
+   
     //파리 먹을 때 마다 점수 업데이트
 }
 
@@ -95,6 +95,7 @@ void PlayScene::Update(float deltaTime)
     {
         EnemyFrameCount = 0;
         UpdateEnemyInfo();
+        score += 1;
     }
     
     m_centerX = gameObj->GetColliderCircle()->center.x;
@@ -417,10 +418,12 @@ void PlayScene::IsUpdateEnemyGoal()
                 if (strcmp(m_GameObjectPtrTable[i]->GetName(), "Enemy") == 0)
                 {
                     FrogGauge += 3;
+                    score += 3;
                 }
                 else if (strcmp(m_GameObjectPtrTable[i]->GetName(), "Enemy_Gold") == 0)
                 {
                     FrogGauge += 6;
+                    score += 6;
                 }
                 
                 //if문으로 그냥파리는 작게 금파리는 크게
