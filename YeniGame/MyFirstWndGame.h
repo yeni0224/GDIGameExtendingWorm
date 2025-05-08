@@ -54,6 +54,7 @@ public:
     void Finalize(); // 종료 함수
 
     void ChangeScene(SceneType eSceneType);
+    void SetLButtonDown(int x, int y);
 
 private:
     void Update();

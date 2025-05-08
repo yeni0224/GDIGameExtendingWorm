@@ -1,5 +1,8 @@
 #pragma once
 #include "Scene.h"
+
+class MyFirstWndGame;
+
 class EndingScene : public Scene
 {
 public:
@@ -16,6 +19,9 @@ public:
     void Update(float deltaTime) override;
     void Render(HDC hDC) override;
     void OnLButtonDown(int x, int y) override;
+
+protected:
+    MyFirstWndGame* m_pGame = nullptr;
 
 };
 

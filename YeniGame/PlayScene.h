@@ -32,8 +32,11 @@ class PlayScene :public Scene
     int GetScore() { return score; }
 
     void OnLButtonDown(int x, int y) override;
+protected:
+    MyFirstWndGame* m_pGame = nullptr;
 
 private:
+
     void CreatePlayer();
     void CreateEnemy();
     void CreateHpBar();
@@ -52,7 +55,7 @@ private:
     float currTime = 0;
     int spawnCnt = 0;
     int FrogGauge = 0;
-    int FrogMaxGauge = 200;
+    int FrogMaxGauge = 100;
    
     bool* arrbool = nullptr;
 
@@ -61,7 +64,6 @@ private:
     void PrintFrogHPBar(HDC hDC);
     void PrintScore(HDC hDC);
 
-    MyFirstWndGame* m_pGame = nullptr;
     GameObjectBase* m_pBackground = nullptr;
 
     int score;

@@ -14,8 +14,6 @@ using namespace learning;
 constexpr int MAX_GAME_OBJECT_COUNT = 50;
 constexpr int MAX_X_NUM = 1025;
 constexpr int MAX_Y_NUM = 721;
-int remainGauge = 100;
-int fullGauge = 100;
 
 void PlayScene::Initialize(NzWndBase* pWnd)
 {
@@ -67,8 +65,11 @@ void PlayScene::FixedUpdate()
     
     CreateEnemy();
     m_pGame->ResetEnemySpawnPosition();
-    FrogGauge -= 5;
+    FrogGauge -= 8;
     std::cout << "Frog Gauge : " << FrogGauge << std::endl;
+    //시간마다 점수 업데이트
+    
+    //파리 먹을 때 마다 점수 업데이트
 }
 
 void PlayScene::Update(float deltaTime)
@@ -81,10 +82,7 @@ void PlayScene::Update(float deltaTime)
     {
         FrogGauge = 0;
         // 씬 전환 처리 (예시: 엔딩 씬으로 전환)
-        if (m_pGame)
-        {
-            m_pGame->ChangeScene(SceneType::SCENE_ENDING);
-        }
+        m_pGame->ChangeScene(SceneType::SCENE_ENDING);
         return; // 더 이상 업데이트 하지 않음
     }
     
@@ -93,7 +91,7 @@ void PlayScene::Update(float deltaTime)
 
     currTime += deltaTime;
     EnemyFrameCount += deltaTime;
-    while (EnemyFrameCount >= 2000.0f)
+    while (EnemyFrameCount >= 1500.0f)
     {
         EnemyFrameCount = 0;
         UpdateEnemyInfo();
@@ -142,10 +140,6 @@ void PlayScene::Render(HDC hDC)
     }
     PrintFrogHPBar(hDC);
     PrintScore(hDC);
-    if (remainGauge <= 0)
-    {
-        m_pGame->ChangeScene(SceneType::SCENE_ENDING);
-    }
 }
 
 UIObject* PlayScene::GetpNewUI()
@@ -211,6 +205,9 @@ void PlayScene::Leave()
 
 void PlayScene::OnLButtonDown(int x, int y)
 {
+    //m_PlayerTargetPos.x = x;
+    //m_PlayerTargetPos.y = y;
+    m_pGame->SetLButtonDown(x, y);
 }
 
 void PlayScene::CreatePlayer()
@@ -407,11 +404,11 @@ void PlayScene::IsUpdateEnemyGoal()
             //만약 게임이 죽으면 여기서도 게임이 끝나면(씬이 전환되면), break를 걸어 while문을 빠져나가도록 해야함
             if (distance < 10.f) //임의로 설정한 거리
             {
-                pEnemy->SetSpeed(0);
+                pEnemy->SetSpeed(0.001f);
             }
             else
             {
-                pEnemy->SetSpeed(0.3f);
+                pEnemy->SetSpeed(0.4f);
             }
 
             if (distance_EP < 35.f)
@@ -425,9 +422,8 @@ void PlayScene::IsUpdateEnemyGoal()
                 {
                     FrogGauge += 6;
                 }
-                //개구리 게이지 늘리기
+                
                 //if문으로 그냥파리는 작게 금파리는 크게
-                //m_GameObjectPtrTable[i]->GetName() == "Enemy" || "Enemy_Gold"
 
                 delete m_GameObjectPtrTable[i];
                 m_GameObjectPtrTable[i] = m_GameObjectPtrTable[lastindex];
@@ -478,34 +474,34 @@ void PlayScene::PrintFrogHPBar(HDC hDC)
     HFONT hOldFont = (HFONT)SelectObject(hDC, hFont);
 
     TCHAR timeText[32]; // 출력할 문자열
-    wsprintf(timeText, L"HP : %d", remainGauge);
+    wsprintf(timeText, L"HP : %d", FrogGauge);
 
     TextOut(hDC, 400, 50, timeText, lstrlen(timeText));
 
     int gaugeWidth = 90;
-    int gaugeHeight = -695;
+    int gaugeHeight = 695;
     int gaugeX = 40;
     int gaugeY = 50;
 
-    int gaugeBar = (int)((remainGauge / fullGauge) * gaugeHeight);
+    //int gaugeBar = (int)( FrogGauge / FrogMaxGauge );
 
     HPEN hOldPen = (HPEN)SelectObject(hDC, hPenHP);
-    HBRUSH hOldBrush = (HBRUSH)SelectObject(hDC, GetStockObject(NULL_BRUSH)); // 내부는 비우기
-    RoundRect(hDC, 400, 50, 500, 55, 10, 10);
+    //HBRUSH hOldBrush = (HBRUSH)SelectObject(hDC, GetStockObject(NULL_BRUSH)); // 내부는 비우기
+    //RoundRect(hDC, 600, 50, 500, 55, 10, 10);
     SelectObject(hDC, GetStockObject(NULL_PEN));
 
 
-    hOldBrush = (HBRUSH)SelectObject(hDC, hGreenBrush);
-    RoundRect(hDC, gaugeX, gaugeY, gaugeX + gaugeWidth, gaugeY + gaugeHeight, 10, 10);
+    //hOldBrush = (HBRUSH)SelectObject(hDC, hGreenBrush);
+    //RoundRect(hDC, gaugeX, gaugeY, gaugeX + gaugeWidth, gaugeY + gaugeHeight, 10, 10);
 
     SelectObject(hDC, hOldPen);
-    SelectObject(hDC, hOldBrush);
+    //SelectObject(hDC, hOldBrush);
 }
 
 void PlayScene::PrintScore(HDC hDC)
 {
-    SetBkColor(hDC, RGB(219, 244, 193)); // 연두색 배경으로 설정
-    SetBkMode(hDC, OPAQUE);              // 배경을 칠하도록 설정
+    //SetBkColor(hDC, RGB(219, 244, 193)); // 연두색 배경으로 설정
+    //SetBkMode(hDC, OPAQUE);              // 배경을 칠하도록 설정
 
     SetTextColor(hDC, RGB(0, 100, 0)); // 글자 색: 녹색
 

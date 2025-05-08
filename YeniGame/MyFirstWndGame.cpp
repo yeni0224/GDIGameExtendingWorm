@@ -129,6 +129,12 @@ void MyFirstWndGame::ChangeScene(SceneType eSceneType)
     }
 }
 
+void MyFirstWndGame::SetLButtonDown(int x, int y)
+{
+    m_PlayerTargetPos.x = x;
+    m_PlayerTargetPos.y = y;
+}
+
 void MyFirstWndGame::FixedUpdate()
 {
     m_pScenes[m_eCurrentScene]->FixedUpdate();

@@ -45,6 +45,7 @@ void TitleScene::Initialize(NzWndBase* pWnd)
 	m_btnStartRect.right = 938;
 	m_btnStartRect.bottom = 978;
 	CreatebtnStart();
+
 }
 
 void TitleScene::Update(float deltaTime)
@@ -83,7 +84,6 @@ void TitleScene::Render(HDC hDC)
 	
 	m_pButton->Render(hDC);
 }
-
 
 void TitleScene::Finalize()
 {
