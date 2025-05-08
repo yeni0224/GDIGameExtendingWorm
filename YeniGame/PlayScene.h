@@ -32,6 +32,7 @@ class PlayScene :public Scene
     int GetScore() { return score; }
 
     void OnLButtonDown(int x, int y) override;
+    bool IsGameOver() override;
 protected:
     MyFirstWndGame* m_pGame = nullptr;
 
@@ -57,7 +58,7 @@ private:
     int FrogGauge = 0;
     int FrogMaxGauge = 100;
     
-   
+    bool bGameOver = false;
     bool* arrbool = nullptr;
 
     GameObject* GetPlayer() const { return (GameObject*)m_GameObjectPtrTable[0]; }

@@ -21,7 +21,7 @@ bool MyFirstWndGame::Initialize()
     m_pGameTimer->Reset();
 
     const wchar_t* className = L"MyFirstWndGame";
-    const wchar_t* windowName = L"Title Scene";
+    const wchar_t* windowName = L"Feeding Frog";
 
     if (false == __super::Create(className, windowName, 1024, 720))
     {

@@ -21,7 +21,7 @@ public:
     void Update(float deltaTime) override;
     void OnLButtonDown(int x, int y) override;
     void Render(HDC hDC) override;
-
+    bool IsGameOver() override;
 
 private:
 

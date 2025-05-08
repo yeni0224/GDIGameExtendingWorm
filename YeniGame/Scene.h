@@ -28,6 +28,7 @@ public:
     virtual void Update(float deltaTime) = 0;
     virtual void OnLButtonDown(int x, int y) {}
     virtual void Render(HDC hDC) = 0;
+    virtual bool IsGameOver() { return false; }
 
 protected:
     GameObjectBase** m_GameObjectPtrTable = nullptr;

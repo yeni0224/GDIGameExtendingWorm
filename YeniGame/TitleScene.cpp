@@ -85,6 +85,11 @@ void TitleScene::Render(HDC hDC)
 	m_pButton->Render(hDC);
 }
 
+bool TitleScene::IsGameOver()
+{
+	return false;
+}
+
 void TitleScene::Finalize()
 {
 	if (m_pBackground)

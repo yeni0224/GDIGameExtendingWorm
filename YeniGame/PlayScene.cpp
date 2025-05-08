@@ -81,12 +81,13 @@ void PlayScene::Update(float deltaTime)
     if (FrogGauge <= 0)
     {
         FrogGauge = 0;
+        bGameOver = true;
         // 씬 전환 처리 (예시: 엔딩 씬으로 전환)
         m_pGame->ChangeScene(SceneType::SCENE_ENDING);
         return; // 더 이상 업데이트 하지 않음
     }
     
-    //if (isGAmeover) retrun;  얘는 뭐냐면 게임끝나서 씬 전환을 했는데 게임이 죽으면 밑에있는 친구들어 없다고 꼬장부리는 것이니
+    if (bGameOver) return ;// 씬 전환을 했는데 게임이 죽으면 밑에있는 친구들 없다고 꼬장부리는 것이니
     //여기서 아래 것들을 실행 못하게 막아야 한다.
 
     currTime += deltaTime;
@@ -176,7 +177,7 @@ void PlayScene::Finalize()
    }
    DeleteObject(hFont);
    DeleteObject(hPenHP);
-   DeleteObject(hGreenBrush);
+   //DeleteObject(hGreenBrush);
    delete m_pBackground;
    m_pBackground = nullptr;
 }
@@ -209,6 +210,11 @@ void PlayScene::OnLButtonDown(int x, int y)
     //m_PlayerTargetPos.x = x;
     //m_PlayerTargetPos.y = y;
     m_pGame->SetLButtonDown(x, y);
+}
+
+bool PlayScene::IsGameOver()
+{
+    return bGameOver;
 }
 
 void PlayScene::CreatePlayer()
@@ -503,8 +509,8 @@ void PlayScene::PrintFrogHPBar(HDC hDC)
 
 void PlayScene::PrintScore(HDC hDC)
 {
-    //SetBkColor(hDC, RGB(219, 244, 193)); // 연두색 배경으로 설정
-    //SetBkMode(hDC, OPAQUE);              // 배경을 칠하도록 설정
+    //SetBackColor(hDC, RGB(219, 244, 193)); // 연두색 배경으로 설정
+    //SetBackMode(hDC, OPAQUE);              // 배경을 칠하도록 설정
 
     SetTextColor(hDC, RGB(0, 100, 0)); // 글자 색: 녹색
 

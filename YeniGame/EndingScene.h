@@ -2,6 +2,7 @@
 #include "Scene.h"
 
 class MyFirstWndGame;
+class PlayScene;
 
 class EndingScene : public Scene
 {
@@ -22,6 +23,9 @@ public:
 
 protected:
     MyFirstWndGame* m_pGame = nullptr;
+    
+private:
+    void PrintPlayerScore(HDC hDC);
 
 };
 
