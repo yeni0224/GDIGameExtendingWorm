@@ -45,10 +45,11 @@ bool MyFirstWndGame::Initialize()
     m_pEnemyBitmapInfo = renderHelp::CreateBitmapInfo(L"../Resource/fly.png");
     m_pEnemyGoldBitmapInfo = renderHelp::CreateBitmapInfo(L"../Resource/fly_gold.png");
     m_pGameStartBitmapInfo = renderHelp::CreateBitmapInfo(L"../Resource/start_button.png");
+    //m_pFrogHpBitmapInfo = renderHelp::CreateBitmapInfo(L"../Resource/frogGauge.png");
 
     if (m_pPlayerBitmapInfo == nullptr  || m_pEnemyBitmapInfo == nullptr
         || m_pBackgroundBitmapInfo == nullptr || m_pEnemyGoldBitmapInfo == nullptr 
-        || m_pGameStartBitmapInfo == nullptr)
+        || m_pGameStartBitmapInfo == nullptr /*|| m_pFrogHpBitmapInfo == nullptr*/)
     {
         std::cout << "Bitmap Load Failed!" << std::endl;
         return false;
@@ -77,7 +78,7 @@ void MyFirstWndGame::Run()
         {
             if (msg.message == WM_LBUTTONDOWN)
             {
-                MyFirstWndGame::OnLButtonDown(LOWORD(msg.lParam), HIWORD(msg.lParam));
+                m_pScenes[m_eCurrentScene]->OnLButtonDown(LOWORD(msg.lParam), HIWORD(msg.lParam));
             }
             /*else if (msg.message == WM_RBUTTONDOWN)
             {

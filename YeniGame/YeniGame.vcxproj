@@ -28,6 +28,7 @@
     <ClCompile Include="NzWndBase.cpp" />
     <ClCompile Include="PlayScene.cpp" />
     <ClCompile Include="RenderHelp.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="Utillity.cpp" />
   </ItemGroup>

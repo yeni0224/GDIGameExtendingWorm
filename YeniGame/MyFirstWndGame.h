@@ -115,6 +115,7 @@ private:
     BitmapInfo* m_pEnemyGoldBitmapInfo = nullptr;
     BitmapInfo* m_pBackgroundBitmapInfo = nullptr;
     BitmapInfo* m_pGameStartBitmapInfo = nullptr;
+    //BitmapInfo* m_pFrogHpBitmapInfo = nullptr;
 
 public:
 
@@ -129,6 +130,7 @@ public:
     BitmapInfo* GetEnemyBitmapInfo() const { return m_pEnemyBitmapInfo; }
     BitmapInfo* GetEnemyGoldBitmapInfo() const { return m_pEnemyGoldBitmapInfo; }
     BitmapInfo* GetGameStartBitmapInfo() const { return m_pGameStartBitmapInfo; }
+    //BitmapInfo* GetFrogHpBitmapInfo() const { return m_pFrogHpBitmapInfo; }
     BitmapInfo* GetBackgroundBitmapInfo() const { return m_pBackgroundBitmapInfo; }
 
 #pragma endregion

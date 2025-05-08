@@ -15,6 +15,7 @@ public:
     void FixedUpdate() override {}
     void Update(float deltaTime) override;
     void Render(HDC hDC) override;
+    void OnLButtonDown(int x, int y) override;
 
 };
 

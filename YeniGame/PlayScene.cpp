@@ -14,6 +14,8 @@ using namespace learning;
 constexpr int MAX_GAME_OBJECT_COUNT = 50;
 constexpr int MAX_X_NUM = 1025;
 constexpr int MAX_Y_NUM = 721;
+int remainGauge = 100;
+int fullGauge = 100;
 
 void PlayScene::Initialize(NzWndBase* pWnd)
 {
@@ -30,9 +32,12 @@ void PlayScene::Initialize(NzWndBase* pWnd)
     }
     m_GameObjectPos = new Vector2f[MAX_GAME_OBJECT_COUNT];
     
-    
     hBluePen = CreatePen(PS_SOLID, 2, RGB(0, 0, 255));
     hRedPen = CreatePen(PS_SOLID, 2, RGB(0, 255, 0));
+    hFont = CreateFont(
+        40, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE,
+        HANGEUL_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS,
+        DEFAULT_QUALITY, DEFAULT_PITCH | FF_SWISS, L"맑은 고딕"); // 폰트
 
     Background* pNewObject = new Background(ObjectType::BACKGROUND);
     pNewObject->SetPosition(0.0f, 0.0f);
@@ -46,6 +51,10 @@ void PlayScene::Initialize(NzWndBase* pWnd)
     pNewObject->SetBitmapInfo(m_pGame->GetBackgroundBitmapInfo());
 
     m_pBackground = pNewObject;
+    
+    //UI 생성
+    pNewUI = new UIObject(ObjectType::FROGGAUGE);
+    pNewUI->SetPosition(720.0f, 10.f);
 
     FrogGauge = 100;
 }
@@ -59,15 +68,25 @@ void PlayScene::FixedUpdate()
     CreateEnemy();
     m_pGame->ResetEnemySpawnPosition();
     FrogGauge -= 5;
-    std::cout << FrogGauge << std::endl;
+    std::cout << "Frog Gauge : " << FrogGauge << std::endl;
 }
 
 void PlayScene::Update(float deltaTime)
 {
-    
     CheckLastIndex();
     UpdatePlayerInfo();
     IsUpdateEnemyGoal();
+
+    if (FrogGauge <= 0)
+    {
+        FrogGauge = 0;
+        // 씬 전환 처리 (예시: 엔딩 씬으로 전환)
+        if (m_pGame)
+        {
+            m_pGame->ChangeScene(SceneType::SCENE_ENDING);
+        }
+        return; // 더 이상 업데이트 하지 않음
+    }
     
     //if (isGAmeover) retrun;  얘는 뭐냐면 게임끝나서 씬 전환을 했는데 게임이 죽으면 밑에있는 친구들어 없다고 꼬장부리는 것이니
     //여기서 아래 것들을 실행 못하게 막아야 한다.
@@ -110,7 +129,8 @@ void PlayScene::Render(HDC hDC)
 {
     assert(m_pGame != nullptr && "Game object is not initialized!");
 
-    m_pBackground->Render(hDC);
+    RECT hpBarRect = { 0, 0, 1500, 70 };
+    FillRect(hDC, &hpBarRect, hBrush);
 
     for (int i = 1; i < MAX_GAME_OBJECT_COUNT; ++i)
     {
@@ -120,6 +140,18 @@ void PlayScene::Render(HDC hDC)
             m_GameObjectPtrTable[i]->Render(hDC, arrbool[i]);
         }
     }
+    PrintFrogHPBar(hDC);
+    PrintScore(hDC);
+    if (remainGauge <= 0)
+    {
+        m_pGame->ChangeScene(SceneType::SCENE_ENDING);
+    }
+}
+
+UIObject* PlayScene::GetpNewUI()
+{
+    UIObject* UiObj = static_cast<UIObject*> (m_UI);
+    return UiObj;
 }
 
 GameObject* PlayScene::GetGameObj(int index)
@@ -147,6 +179,9 @@ void PlayScene::Finalize()
        delete[] m_GameObjectPos;
        m_GameObjectPos = nullptr;
    }
+   DeleteObject(hFont);
+   DeleteObject(hPenHP);
+   DeleteObject(hGreenBrush);
    delete m_pBackground;
    m_pBackground = nullptr;
 }
@@ -156,9 +191,25 @@ void PlayScene::Enter()
     // [CHECK]. 첫 번째 게임 오브젝트는 플레이어 캐릭터로 고정!
     CreatePlayer();
     gameObj = GetGameObj(0);
+
+    //UI 생성
+    CreateHpBar();
+    pNewUI = GetpNewUI();
 }
 
 void PlayScene::Leave()
+{
+    for (int i = 0; i < MAX_GAME_OBJECT_COUNT; ++i)
+    {
+        if (m_GameObjectPtrTable[i])
+        {
+            delete m_GameObjectPtrTable[i];
+            m_GameObjectPtrTable[i] = nullptr;
+        }
+    }
+}
+
+void PlayScene::OnLButtonDown(int x, int y)
 {
 }
 
@@ -250,6 +301,15 @@ void PlayScene::CreateEnemy() //파리로 생성
     }
 }
 
+void PlayScene::CreateHpBar()
+{
+    assert(m_pGame != nullptr && "Game object is not initialized!");
+
+    pNewUI->SetWidth(m_pGame->GetWidth());
+    pNewUI->SetHeight(m_pGame->GetHeight());
+
+}
+
 void PlayScene::UpdatePlayerInfo()
 {
     static GameObject* pPlayer = GetPlayer();
@@ -272,6 +332,7 @@ void PlayScene::UpdatePlayerInfo()
     {
         pPlayer->SetDirection(Vector2f(0, 0)); // 플레이어 정지
     }
+    
 }
 
 void PlayScene::UpdateEnemyInfo() //파리
@@ -314,39 +375,7 @@ void PlayScene::UpdateEnemyInfo() //파리
                 EnemyDir.Normalize(); // 정규화
                 pEnemy->SetDirection(EnemyDir); // 플레이어 방향 설정
             }
-
-            //---------------------------------------------------------------------------
-
-            //else
-            //{
-            //
-            //    pEnemy->SetDirection(Vector2f(0, 0)); // 플레이어 정지
-            //}
-            //
-            //if (distance < 0.1f)
-            //{
-            //    arrbool[i] = false;
-            //    n++;
-            //    m_GameObjectPtrTable[i]->SetSpeed(0.1f);
-            //    
-            //    //arrbool[0] = true;
-            //}
-            //
-            //else
-            //{
-            //    arrbool[i] = true;
-            //    //arrbool[0] = false;
-            //}
-            //
-            // if (distance > 0.1f) //임의로 설정한 오브젝트와 player 사이 거리
-            // {
-            //    EnemyDir.Normalize(); // 정규화
-            //    pEnemy->SetDirection(EnemyDir); // 방향 설정
-            // }
-            //else
-            //{
-            //    pEnemy->SetDirection(randPos); //  정지
-            //}
+            
         }
     }
     if (n > 0) arrbool[0] = false;
@@ -442,48 +471,58 @@ bool PlayScene::IsCollideEnemy(int x, int y)
     return false;
 }
 
-//첫번째, 두번째 원 거리비교 따른 결과 bool 출력(여러 개의 원이 겹쳤을 때)
-//bool PlayScene::CheckOverlap()
-//{
-//    int firstSegPosX = m_GameObjectPtrTable[0]->GetPosition().x;
-//    int firstSegPosY = m_GameObjectPtrTable[0]->GetPosition().y;
-//    Vector2f fisrtIndex = (firstSegPosX, firstSegPosY);
-//
-//    int secondSegPosX = m_GameObjectPtrTable[1]->GetPosition().x;
-//    int secondSegPosY = m_GameObjectPtrTable[1]->GetPosition().y;
-//    Vector2f secondIndex = (secondSegPosX, secondSegPosY);
-//
-//    int distance = fisrtIndex.Distance(secondIndex);
-//    if (std::abs(distance - (m_radius * 2)) < 0.01f) return true;
-//    else if (distance < (m_radius * 2)) return false;
-//    else return false;
-//}
-
-//bool PlayScene::ComparePPrevDistance(int i)
-//{
-//    // 현재 원과 전전 원과의 거리 비교
-//    // 조건 비교 함수에서 i 값 받아와야함
-//    int pprevEnemyPosX = m_GameObjectPtrTable[i]->GetPosition().x;
-//    int pprevEnemyPosY = m_GameObjectPtrTable[i]->GetPosition().y;
-//    Vector2f fisrtIndex = (pprevEnemyPosX, pprevEnemyPosY);
-//
-//    int nnextEnemyPosX = m_GameObjectPtrTable[i + 2]->GetPosition().x;
-//    int nnextEnemyPosY = m_GameObjectPtrTable[i + 2]->GetPosition().y;
-//    Vector2f secondIndex = (nnextEnemyPosX, nnextEnemyPosY);
-//
-//    int distance = fisrtIndex.Distance(secondIndex);
-//    if (std::abs(distance - (m_radius * 4)) < 0.01f) return true;
-//    else if (distance < (m_radius * 4)) return false;
-//    else return false;
-//
-//    return false;
-//}
-
-void PlayScene::UpdateObstacleInfo()
+void PlayScene::PrintFrogHPBar(HDC hDC)
 {
-    static GameObject* pPlayer = GetPlayer();
-    assert(pPlayer != nullptr);
+    //남은 hp 게이지
+    SetTextColor(hDC, RGB(0., 150, 0));
+    HFONT hOldFont = (HFONT)SelectObject(hDC, hFont);
+
+    TCHAR timeText[32]; // 출력할 문자열
+    wsprintf(timeText, L"HP : %d", remainGauge);
+
+    TextOut(hDC, 400, 50, timeText, lstrlen(timeText));
+
+    int gaugeWidth = 90;
+    int gaugeHeight = -695;
+    int gaugeX = 40;
+    int gaugeY = 50;
+
+    int gaugeBar = (int)((remainGauge / fullGauge) * gaugeHeight);
+
+    HPEN hOldPen = (HPEN)SelectObject(hDC, hPenHP);
+    HBRUSH hOldBrush = (HBRUSH)SelectObject(hDC, GetStockObject(NULL_BRUSH)); // 내부는 비우기
+    RoundRect(hDC, 400, 50, 500, 55, 10, 10);
+    SelectObject(hDC, GetStockObject(NULL_PEN));
+
+
+    hOldBrush = (HBRUSH)SelectObject(hDC, hGreenBrush);
+    RoundRect(hDC, gaugeX, gaugeY, gaugeX + gaugeWidth, gaugeY + gaugeHeight, 10, 10);
+
+    SelectObject(hDC, hOldPen);
+    SelectObject(hDC, hOldBrush);
 }
+
+void PlayScene::PrintScore(HDC hDC)
+{
+    SetBkColor(hDC, RGB(219, 244, 193)); // 연두색 배경으로 설정
+    SetBkMode(hDC, OPAQUE);              // 배경을 칠하도록 설정
+
+    SetTextColor(hDC, RGB(0, 100, 0)); // 글자 색: 녹색
+
+    HFONT hOldFont = (HFONT)SelectObject(hDC, hFont);
+
+    // 출력할 문자열 만들기
+    wchar_t scoreText[64];
+    swprintf_s(scoreText, L"Score : %d", GetScore());
+
+    // 출력 위치 (적당히 수정 가능)
+    TextOut(hDC, 400, 20, scoreText, wcslen(scoreText));
+
+    // 원래 폰트 복원
+    SelectObject(hDC, hOldFont);
+}
+
+//원이 겹쳤을 때
 
 bool PlayScene::IsSamePos()
 {

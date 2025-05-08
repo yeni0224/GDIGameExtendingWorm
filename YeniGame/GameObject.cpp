@@ -1,5 +1,4 @@
 #include "INC_Windows.h"
-
 #include "Collider.h"
 #include "RenderHelp.h"
 #include "GameObject.h"
@@ -274,6 +273,46 @@ void Background::DrawBitmap(HDC hdc)
     int screenHeight = 0;
     learning::GetScreenSize(screenWidth, screenHeight);
 
+    AlphaBlend(hdc, 0, 0, screenWidth, screenHeight,
+        hBitmapDC, 0, 0, m_width, m_height, blend);
+    // 비트맵 핸들 복원
+    SelectObject(hBitmapDC, hOldBitmap);
+    DeleteDC(hBitmapDC);
+}
+
+UIObject::~UIObject()
+{
+}
+
+void UIObject::Update(float deltaTime)
+{
+    // 플레이어의 hp 값 확인
+
+
+    // 플레이어의 hp가 0이라면 씬 전환
+}
+
+void UIObject::Render(HDC hdc)
+{
+    DrawBitmap(hdc);
+}
+
+void UIObject::DrawBitmap(HDC hdc)
+{
+    if (m_pBitmapInfo == nullptr) return;
+    if (m_pBitmapInfo->GetBitmapHandle() == nullptr) return;
+    HDC hBitmapDC = CreateCompatibleDC(hdc);
+
+    HBITMAP hOldBitmap = (HBITMAP)SelectObject(hBitmapDC, m_pBitmapInfo->GetBitmapHandle());
+    // BLENDFUNCTION 설정 (알파 채널 처리)
+    BLENDFUNCTION blend = { 0 };
+    blend.BlendOp = AC_SRC_OVER;
+    blend.SourceConstantAlpha = 255;  // 원본 알파 채널 그대로 사용
+    blend.AlphaFormat = AC_SRC_ALPHA;
+
+    int screenWidth = 0;
+    int screenHeight = 0;
+    learning::GetScreenSize(screenWidth, screenHeight);
     AlphaBlend(hdc, 0, 0, screenWidth, screenHeight,
         hBitmapDC, 0, 0, m_width, m_height, blend);
     // 비트맵 핸들 복원

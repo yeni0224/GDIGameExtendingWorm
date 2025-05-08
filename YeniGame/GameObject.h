@@ -22,7 +22,8 @@ enum class ObjectType
     ITEM,
     BACKGROUND,
     ENEMY_GOLD,
-    GAMESTART
+    GAMESTART,
+    FROGGAUGE
 };
 
 constexpr int OBJECT_NAME_LEN_MAX = 15;
@@ -102,8 +103,7 @@ public:
 
     void Update(float deltaTime) override;
     void Render(HDC hdc) override;
-    void Render(HDC hdc, bool arrbool) override;
-
+    void Render(HDC hdc, bool arrbool) override;    
 
     void SetColliderCircle(float radius);
     void SetColliderBox(float halfWidth, float halfHeight);
@@ -150,10 +150,29 @@ public:
     Background(ObjectType type) : GameObject(type) {}
     ~Background() override;
 
+    void Render(HDC hdc) override;
+    void Update(float deltaTime) override;
+    
+    void SetBitmapInfo(BitmapInfo* bitmapInfo);
+
+protected:
+    void DrawBitmap(HDC hdc);
+    // Bitmap 정보
+    BitmapInfo* m_pBitmapInfo = nullptr;
+};
+
+//hp bar 그리기
+class UIObject : public GameObject
+{
+    using BitmapInfo = renderHelp::BitmapInfo;
+
+public:
+    UIObject(const UIObject&) = delete;
+    UIObject(ObjectType type) : GameObject(type) {}
+    ~UIObject() override;
+
     void Update(float deltaTime) override;
     void Render(HDC hdc) override;
-
-    void SetBitmapInfo(BitmapInfo* bitmapInfo);
 
 protected:
     void DrawBitmap(HDC hdc);

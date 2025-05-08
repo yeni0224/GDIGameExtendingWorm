@@ -1,5 +1,6 @@
 #pragma once
 #include "INC_Windows.h"
+#include "GameObject.h"
 
 enum SceneType
 {
@@ -25,11 +26,18 @@ public:
 
     virtual void FixedUpdate() = 0;
     virtual void Update(float deltaTime) = 0;
+    virtual void OnLButtonDown(int x, int y) {}
     virtual void Render(HDC hDC) = 0;
-    
 
 protected:
     GameObjectBase** m_GameObjectPtrTable = nullptr;
+    UIObject* m_UI = nullptr;
+
+    HPEN hPenHP = nullptr;
+
+    HBRUSH hGreenBrush = nullptr;
+    HBRUSH hBrush = nullptr;
+    HFONT hFont = nullptr;
 
 private:
     Scene (const Scene&) = delete;

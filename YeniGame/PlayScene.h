@@ -22,22 +22,28 @@ class PlayScene :public Scene
     void FixedUpdate() override;
     void Update(float deltaTime) override;
     void Render(HDC hDC) override;
+    UIObject* pNewUI;
+    UIObject* GetpNewUI();
     GameObject* GetGameObj(int index);
     GameObject* gameObj;
     //GameObject* gameObj = dynamic_cast<GameObject*> (m_GameObjectPtrTable[0]);
+    int GetFrogGauge() { return FrogGauge; }
+    int SetFrogGauge(int hp) { return FrogGauge = hp; }
+    int GetScore() { return score; }
+
+    void OnLButtonDown(int x, int y) override;
+
 private:
     void CreatePlayer();
     void CreateEnemy();
+    void CreateHpBar();
 
     void UpdatePlayerInfo();
     void UpdateEnemyInfo();
     void IsUpdateEnemyGoal();
     void CheckLastIndex();
-    void UpdateObstacleInfo();
     bool IsSamePos();
     bool IsCollideEnemy(int x, int y);
-    //bool CheckOverlap();
-    //bool ComparePPrevDistance(int i);
     int m_centerX = 0;
     int m_centerY = 0;
     int m_radius = 0;
@@ -51,10 +57,14 @@ private:
     bool* arrbool = nullptr;
 
     GameObject* GetPlayer() const { return (GameObject*)m_GameObjectPtrTable[0]; }
+    UIObject* GetHpBar() const { return(UIObject*)m_UI; }
+    void PrintFrogHPBar(HDC hDC);
+    void PrintScore(HDC hDC);
 
     MyFirstWndGame* m_pGame = nullptr;
     GameObjectBase* m_pBackground = nullptr;
 
+    int score;
     float randWidth = 0;
     float randHieght = 0;
 

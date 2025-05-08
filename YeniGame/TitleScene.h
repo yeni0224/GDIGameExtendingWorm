@@ -19,6 +19,7 @@ public:
 
     void FixedUpdate() override {}
     void Update(float deltaTime) override;
+    void OnLButtonDown(int x, int y) override;
     void Render(HDC hDC) override;
 
 
@@ -37,6 +38,7 @@ private:
     RECT m_storyRect = { 0, 0, 0, 0 };
     RECT m_btnStartRect = { 0, 0, 0, 0 };
 
+    bool isClicked = false;
 
     GameObjectBase* m_pButton = nullptr;
     void CreatebtnStart();
