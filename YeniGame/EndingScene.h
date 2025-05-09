@@ -26,6 +26,8 @@ protected:
     
 private:
     void PrintPlayerScore(HDC hDC);
+    int score;
+    wchar_t scoreText[64];
 
 };
 
