@@ -14,8 +14,13 @@ void EndingScene::Update(float deltaTime)
 void EndingScene::Render(HDC hDC)
 {
     RECT rect;
-    SetRect(&rect,400, 500, 400, 600); 
+    SetRect(&rect,0, 360, 1024, 720); 
     DrawText(hDC, L"Game Over", -1, &rect, DT_CENTER | DT_VCENTER);
+
+    //RECT rect2;
+    //SetRect(&rect2, 0, 330, 1024, 720);
+    //DrawText(hDC, scoreText, -1, &rect2, DT_CENTER | DT_VCENTER);
+
 }
 
 void EndingScene::OnLButtonDown(int x, int y)
@@ -30,8 +35,7 @@ void EndingScene::PrintPlayerScore(HDC hDC)
     HFONT hOldFont = (HFONT)SelectObject(hDC, hFont);
 
     // 출력할 문자열 만들기
-    wchar_t scoreText[64];
-    //swprintf_s(scoreText, L"Score : %d", PlayScene::GetScore());
+    swprintf_s(scoreText, L"Score : %d", score);
 
     // 출력 위치 (적당히 수정 가능)
     TextOut(hDC, 400, 20, scoreText, wcslen(scoreText));
@@ -46,6 +50,9 @@ void EndingScene::Finalize()
 
 void EndingScene::Enter()
 {
+    //PlayScene* m_pScene = dynamic_cast<PlayScene*>(m_pGame->GetScene(SceneType::SCENE_PLAY));
+
+    //score = m_pScene->GetScore();
 }
 
 void EndingScene::Leave()

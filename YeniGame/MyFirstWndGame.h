@@ -119,6 +119,7 @@ private:
     //BitmapInfo* m_pFrogHpBitmapInfo = nullptr;
 
 public:
+    Scene* GetScene(int n) { return m_pScenes[n]; }
 
     using Vector2f = learning::Vector2f;
     Vector2f PlayerTargetPosition() const { return Vector2f(m_PlayerTargetPos.x, m_PlayerTargetPos.y); }
